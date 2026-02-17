@@ -1,0 +1,47 @@
+---
+// Copyright (C) 2026 mucookul
+// SPDX-License-Identifier: AGPL-3.0-only
+
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+import { getCollection, render, type CollectionEntry } from "astro:content";
+
+export async function getStaticPaths() {
+    const posts = await getCollection("blog");
+    return posts.map((post) => ({
+        params: { id: post.id },
+        props: { post },
+    }));
+}
+
+interface Props {
+    post: CollectionEntry<"blog">;
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BaseLayout frontmatter={post.data}>
+    <div class="text-neutral-500 dark:text-neutral-400">
+        <h1 class="mb-0">{post.data.title}</h1>
+        <p class="mt-[0.625em] mb-[0.625em]">{post.data.description}</p>
+        <p class="mt-[0.625em] mb-[0.625em]">
+            {
+                post.data.date
+                    .toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "short",
+                        day: "numeric",
+                    })
+                    .toUpperCase()
+            }
+        </p>
+    </div>
+    <hr />
+    <Content />
+</BaseLayout>
+
+<script>
+    import "@/scripts/copy-button.ts";
+</script>

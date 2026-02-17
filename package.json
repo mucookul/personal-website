@@ -1,0 +1,44 @@
+{
+    "//": [
+        "Copyright (C) 2026 mucookul",
+        "SPDX-License-Identifier: AGPL-3.0-only"
+    ],
+    "name": "personal-website",
+    "private": true,
+    "type": "module",
+    "version": "0.0.1",
+    "license": "AGPL-3.0-only",
+    "scripts": {
+        "dev": "astro dev",
+        "build": "astro build",
+        "preview": "wrangler dev",
+        "format": "prettier . --write",
+        "lint": "eslint . --fix",
+        "check": "astro check"
+    },
+    "dependencies": {
+        "@lucide/astro": "0.574.0",
+        "@tailwindcss/typography": "0.5.19",
+        "@tailwindcss/vite": "4.1.18",
+        "astro": "^5.17.1",
+        "astro-robots-txt": "1.0.0",
+        "astro-sitemap": "1.0.0",
+        "remark-github-blockquote-alert": "2.0.1",
+        "simple-icons-astro": "16.1.0",
+        "tailwindcss": "4.1.18"
+    },
+    "devDependencies": {
+        "@astrojs/check": "0.9.6",
+        "@astrojs/mdx": "^4.3.13",
+        "@eslint/js": "10.0.1",
+        "eslint": "10.0.0",
+        "eslint-config-prettier": "10.1.8",
+        "eslint-plugin-astro": "1.6.0",
+        "prettier": "3.8.1",
+        "prettier-plugin-astro": "0.14.1",
+        "prettier-plugin-tailwindcss": "0.7.2",
+        "typescript": "5.9.3",
+        "typescript-eslint": "8.56.0",
+        "wrangler": "4.66.0"
+    }
+}

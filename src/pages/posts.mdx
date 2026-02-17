@@ -1,0 +1,52 @@
+---
+title: posts
+layout: "@/layouts/BaseLayout.astro"
+---
+
+{/* Copyright (C) 2026 mucookul */}
+{/* SPDX-License-Identifier: AGPL-3.0-only */}
+
+import { getCollection } from "astro:content";
+
+export const posts = (await getCollection("blog")).sort(
+    (a, b) => b.data.date - a.data.date,
+);
+
+export const postsByYear = Object.entries(
+    posts.reduce((acc, post) => {
+        const year = post.data.date.getFullYear();
+        acc[year] ??= [];
+        acc[year].push(post);
+        return acc;
+    }, {}),
+).sort(([a], [b]) => Number(b) - Number(a));
+
+<div class="grid gap-12">
+    {postsByYear.map(([year, yearPosts], index) => (
+        <section>
+            <h2 class="mt-0 mb-2">{year}</h2>
+            <ul class="not-prose grid gap-4">
+                {yearPosts.map((post) => (
+                    <li>
+                        <a href={`/posts/${post.id}`} class="group flex gap-4">
+                            <p>
+                                {post.data.date
+                                    .toLocaleDateString("en-US", {
+                                        month: "short",
+                                        day: "numeric",
+                                    })
+                                    .toUpperCase()}
+                            </p>
+                            <div>
+                                <p class="text-red-500 transition-all duration-500 dark:text-red-400">
+                                    {post.data.title}
+                                </p>
+                                <span class="transition-color block h-0.25 -translate-y-1.5 bg-red-500 opacity-0 duration-100 group-hover:opacity-100 dark:bg-red-400"></span>
+                            </div>
+                        </a>
+                    </li>
+                ))}
+            </ul>
+        </section>
+    ))}
+</div>

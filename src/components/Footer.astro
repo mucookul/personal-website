@@ -1,0 +1,49 @@
+---
+// Copyright (C) 2026 mucookul
+// SPDX-License-Identifier: AGPL-3.0-only
+
+import Codeberg from "simple-icons-astro/Codeberg";
+import Github from "simple-icons-astro/Github";
+import Mail from "@lucide/astro/icons/mail";
+import Sun from "@lucide/astro/icons/sun";
+import Moon from "@lucide/astro/icons/moon";
+---
+
+<footer
+    class="sticky bottom-0 flex w-full items-center justify-between bg-white px-2 py-4 dark:bg-black">
+    <span class="flex gap-2">
+        <a
+            href="https://codeberg.org/mucookul"
+            class="p-2 transition-colors duration-150 hover:text-red-500 hover:dark:text-red-400"
+            aria-label="Codeberg">
+            <Codeberg class="size-5" />
+        </a>
+        <a
+            href="https://github.com/mucookul"
+            class="p-2 transition-colors duration-150 hover:text-red-500 hover:dark:text-red-400"
+            aria-label="Github">
+            <Github class="size-5" />
+        </a>
+        <a
+            href="mailto:mucookul@gmail.com"
+            class="p-2 transition-colors duration-150 hover:text-red-500 hover:dark:text-red-400"
+            aria-label="Email">
+            <Mail class="size-5 stroke-[2.5]" />
+        </a>
+    </span>
+    <button
+        id="themeSwitcher"
+        type="button"
+        class="cursor-pointer p-2 transition-colors duration-150 hover:text-red-500 hover:dark:text-red-400"
+        aria-label="Theme Switcher">
+        <Sun class="block size-5 stroke-[2.5] dark:hidden" />
+        <Moon class="hidden size-5 stroke-[2.5] dark:block" />
+    </button>
+</footer>
+
+<script>
+    document.getElementById("themeSwitcher")!.onclick = () => {
+        const inside = document.documentElement.classList.toggle("dark");
+        localStorage.setItem("dark", inside.toString());
+    };
+</script>

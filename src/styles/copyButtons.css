@@ -1,0 +1,38 @@
+/* Copyright (C) 2026 mucookul */
+/* SPDX-License-Identifier: AGPL-3.0-only */
+
+:root {
+    --copy-btn-color: var(--color-white);
+    --copy-btn-color-hover: var(--color-zinc-100);
+}
+
+:root.dark {
+    --copy-btn-color: var(--color-black);
+    --copy-btn-color-hover: var(--color-zinc-900);
+}
+
+.code-wrapper {
+    position: relative;
+
+    & > pre.astro-code {
+        padding-right: 3.75rem;
+    }
+
+    & > button.copy-btn {
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+        cursor: pointer;
+        border-radius: 0.25rem;
+        font-style: normal;
+        background-color: var(--copy-btn-color);
+        transition-property: background-color;
+        transition-duration: 50ms;
+    }
+
+    & > button.copy-btn:hover {
+        background-color: var(--copy-btn-color-hover);
+    }
+}

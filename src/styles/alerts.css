@@ -1,0 +1,78 @@
+/* Copyright (C) 2026 mucookul */
+/* SPDX-License-Identifier: AGPL-3.0-only */
+
+:root {
+    --color-accent-fg: #0969da;
+    --color-accent-emphasis: #0969da;
+    --color-danger-fg: #d1242f;
+    --color-danger-emphasis: #cf222e;
+    --color-attention-fg: #9a6700;
+    --color-attention-emphasis: #9a6700;
+    --color-done-fg: #8250df;
+    --color-done-emphasis: #8250df;
+    --color-success-fg: #1a7f37;
+    --color-success-emphasis: #1f883d;
+}
+
+:root.dark {
+    --color-accent-fg: #58a6ff;
+    --color-accent-emphasis: #1f6feb;
+    --color-danger-fg: #f85149;
+    --color-danger-emphasis: #da3633;
+    --color-attention-fg: #d29922;
+    --color-attention-emphasis: #9e6a03;
+    --color-done-fg: #a371f7;
+    --color-done-emphasis: #8957e5;
+    --color-success-fg: #3fb950;
+    --color-success-emphasis: #238636;
+}
+
+.markdown-alert {
+    border-left: 0.25em solid var(--alert-border);
+    padding: 0 1em;
+    margin-bottom: 1.25em;
+
+    & > p {
+        margin-top: 0.625em;
+        margin-bottom: 0.625em;
+    }
+
+    & > .markdown-alert-title {
+        align-items: center;
+        display: flex;
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 0.625em;
+        color: var(--alert-title-color);
+        gap: 8px;
+    }
+
+    & > .markdown-alert-title svg.octicon {
+        fill: currentColor;
+    }
+}
+
+.markdown-alert-note {
+    --alert-border: var(--color-accent-emphasis);
+    --alert-title-color: var(--color-accent-fg);
+}
+
+.markdown-alert-tip {
+    --alert-border: var(--color-success-emphasis);
+    --alert-title-color: var(--color-success-fg);
+}
+
+.markdown-alert-important {
+    --alert-border: var(--color-done-emphasis);
+    --alert-title-color: var(--color-done-fg);
+}
+
+.markdown-alert-warning {
+    --alert-border: var(--color-attention-emphasis);
+    --alert-title-color: var(--color-attention-fg);
+}
+
+.markdown-alert-caution {
+    --alert-border: var(--color-danger-emphasis);
+    --alert-title-color: var(--color-danger-fg);
+}

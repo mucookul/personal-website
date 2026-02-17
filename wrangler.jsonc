@@ -1,0 +1,11 @@
+// Copyright (C) 2026 mucookul
+// SPDX-License-Identifier: AGPL-3.0-only
+
+{
+    "name": "personal-website",
+    "compatibility_date": "2026-02-15",
+    "assets": {
+        "directory": "./dist",
+        "not_found_handling": "404-page",
+    },
+}

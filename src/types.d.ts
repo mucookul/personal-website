@@ -1,0 +1,4 @@
+// Copyright (C) 2026 mucookul
+// SPDX-License-Identifier: AGPL-3.0-only
+
+declare module "prettier-plugin-astro";

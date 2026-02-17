@@ -1,0 +1,52 @@
+/* Copyright (C) 2026 mucookul */
+/* SPDX-License-Identifier: AGPL-3.0-only */
+
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@import "./alerts.css";
+@import "./copyButtons.css";
+@import "./shiki.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@font-face {
+    font-family: "Lexend Deca";
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100 900;
+    src: url("/fonts/LexendDeca.woff2");
+}
+
+@font-face {
+    font-family: "Commit Mono";
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100 900;
+    src: url("/fonts/CommitMono.woff2");
+}
+
+@theme {
+    --font-sans:
+        "Lexend Deca", ui-sans-serif, system-ui, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
+    --font-mono:
+        "Commit Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        "Liberation Mono", "Courier New", monospace;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    @view-transition {
+        navigation: auto;
+    }
+
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+        animation-duration: 80ms;
+    }
+}
+
+:root {
+    scrollbar-gutter: stable;
+}
