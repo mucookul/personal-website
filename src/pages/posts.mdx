@@ -21,6 +21,10 @@ export const postsByYear = Object.entries(
     }, {}),
 ).sort(([a], [b]) => Number(b) - Number(a));
 
+{posts.length === 0 && (
+<h4 class="text-red-500 dark:text-red-400">no posts yet! check back later... or not</h4>
+)}
+
 <div class="grid gap-12">
     {postsByYear.map(([year, yearPosts], index) => (
         <section>
