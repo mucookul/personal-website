@@ -1,0 +1,67 @@
+---
+// Copyright (C) 2026 mucookul
+// SPDX-License-Identifier: AGPL-3.0-only
+
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+
+const posts = (await getCollection("blog")).sort(
+    (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
+
+const map = new Map<number, typeof posts>();
+
+for (const post of posts) {
+    const year = post.data.date.getFullYear();
+    map.set(year, [...(map.get(year) ?? []), post]);
+}
+
+const postsByYear = [...map.entries()].sort(([a], [b]) => b - a);
+---
+
+<BaseLayout frontmatter={{ title: "posts" }}>
+    {
+        posts.length === 0 && (
+            <h4 class="text-red-500 dark:text-red-400">
+                no posts yet! check back later... or not
+            </h4>
+        )
+    }
+
+    <div class="grid gap-12">
+        {
+            postsByYear.map(([year, yearPosts], index) => (
+                <section>
+                    <h2 class="mt-0 mb-2">{year}</h2>
+                    <ul class="not-prose grid gap-4">
+                        {yearPosts.map((post) => (
+                            <li>
+                                <a href={`/posts/${post.id}`} class="group">
+                                    <span class="flex gap-4">
+                                        <p>
+                                            {post.data.date
+                                                .toLocaleDateString("en-US", {
+                                                    month: "short",
+                                                    day: "numeric",
+                                                })
+                                                .toUpperCase()}
+                                        </p>
+                                        <div>
+                                            <p class="text-red-500 transition-all duration-500 dark:text-red-400">
+                                                {post.data.title}
+                                            </p>
+                                            <span class="transition-color block h-px -translate-y-1.5 bg-red-500 opacity-0 duration-100 group-hover:opacity-100 dark:bg-red-400" />
+                                        </div>
+                                    </span>
+                                    <p class="line-clamp-3 text-neutral-500 dark:text-neutral-400">
+                                        {post.data.description}
+                                    </p>
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                </section>
+            ))
+        }
+    </div>
+</BaseLayout>

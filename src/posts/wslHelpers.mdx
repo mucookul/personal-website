@@ -1,0 +1,57 @@
+---
+title: WSL Helpers
+description: Some simple helpers I made to bootstrap Alpine and Arch from scratch.
+date: 2026-02-19
+---
+
+{/* Copyright (C) 2026 mucookul */}
+{/* SPDX-License-Identifier: AGPL-3.0-only */}
+
+I always find myself with super messy WSL installs, so here's my scripts I use to keep them clean and reproduceable. They're minimal and perfect for one-offs. Enjoy!
+
+<br />
+
+`createAlpine.bat`
+
+```batch
+@echo off
+wsl --unregister alpine
+
+wsl --install --name alpine --from-file alpine-minirootfs-3.23.2-x86_64.tar.gz --no-launch
+
+wsl --distribution alpine --user root -- apk -U upgrade
+wsl --distribution alpine --user root -- adduser -h /home/mucookul -s /bin/ash mucookul
+wsl --distribution alpine --user root -- adduser mucookul wheel
+wsl --distribution alpine --user root -- apk add doas
+wsl --distribution alpine --user root -- ash -c "echo 'permit :wheel' > /etc/doas.d/doas.conf"
+
+wsl --manage alpine --set-default-user mucookul
+
+wsl --terminate alpine
+```
+
+<br />
+
+`createArch.bat`
+
+```batch
+@echo off
+wsl --unregister arch
+
+wsl --install --name arch --from-file archlinux-2026.01.01.156076.wsl --no-launch
+
+wsl --distribution arch --user root -- sed -i "/^command = /d" /etc/wsl-distribution.conf
+wsl --distribution arch --user root -- pacman-key --init
+wsl --distribution arch --user root -- pacman-key --populate archlinux
+wsl --distribution arch --user root -- pacman -Syu --noconfirm
+wsl --distribution arch --user root -- bash -c "echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen"
+wsl --distribution arch --user root -- locale-gen
+wsl --distribution arch --user root -- useradd -m -G wheel mucookul
+wsl --distribution arch --user root -- passwd mucookul
+wsl --distribution arch --user root -- pacman -S sudo --noconfirm
+wsl --distribution arch --user root -- bash -c "echo '%%wheel      ALL=(ALL:ALL) ALL' > /etc/sudoers.d/10-wheel"
+
+wsl --manage arch --set-default-user mucookul
+
+wsl --terminate arch
+```
