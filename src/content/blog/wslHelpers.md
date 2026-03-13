@@ -4,10 +4,7 @@ description: Some simple helpers I made to bootstrap Alpine and Arch from scratc
 date: 2026-02-19
 ---
 
-{/* Copyright (C) 2026 mucookul */}
-{/* SPDX-License-Identifier: AGPL-3.0-only */}
-
-I always find myself with super messy WSL installs, so here's my scripts I use to keep them clean and reproduceable. They're minimal and perfect for one-offs. Enjoy!
+I always find myself with super messy WSL installs, so here's my scripts I use to keep them clean and reproduce-able. They're minimal and perfect for one-offs. Enjoy!
 
 <br />
 

@@ -4,16 +4,18 @@
 import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 
-import mdx from "@astrojs/mdx";
 import robotsTxt from "astro-robots-txt";
 import sitemap from "astro-sitemap";
+
+import cloudflare from "@astrojs/cloudflare";
 
 import { remarkAlert } from "remark-github-blockquote-alert";
 import rehypeCopyButton from "./src/rehype/rehype-copy-button.ts";
 
 export default defineConfig({
     site: "https://www.mookul.dev",
-    integrations: [mdx(), robotsTxt(), sitemap()],
+    adapter: cloudflare(),
+    integrations: [robotsTxt(), sitemap()],
     markdown: {
         remarkPlugins: [remarkAlert],
         rehypePlugins: [rehypeCopyButton],

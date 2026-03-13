@@ -6,8 +6,10 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 
 import { getCollection, render, type CollectionEntry } from "astro:content";
 
+type BlogPost = CollectionEntry<"blog">;
+
 export async function getStaticPaths() {
-    const posts = await getCollection("blog");
+    const posts: BlogPost[] = await getCollection("blog");
     return posts.map((post) => ({
         params: { id: post.id },
         props: { post },
@@ -15,7 +17,7 @@ export async function getStaticPaths() {
 }
 
 interface Props {
-    post: CollectionEntry<"blog">;
+    post: BlogPost;
 }
 
 const { post } = Astro.props;

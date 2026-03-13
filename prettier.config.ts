@@ -10,6 +10,14 @@ const config: Config = {
     bracketSameLine: true,
     plugins: [prettierPluginAstro, prettierPluginTailwindcss],
     tabWidth: 4,
+    overrides: [
+        {
+            files: "*.astro",
+            options: {
+                parser: "astro",
+            },
+        },
+    ],
 };
 
 export default config;
