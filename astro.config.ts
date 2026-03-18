@@ -1,20 +1,17 @@
 // Copyright (C) 2026 mucookul
 // SPDX-License-Identifier: AGPL-3.0-only
 
-import { defineConfig } from "astro/config";
+import { defineConfig, fontProviders } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 
 import robotsTxt from "astro-robots-txt";
 import sitemap from "astro-sitemap";
-
-import cloudflare from "@astrojs/cloudflare";
 
 import { remarkAlert } from "remark-github-blockquote-alert";
 import rehypeCopyButton from "./src/rehype/rehype-copy-button.ts";
 
 export default defineConfig({
     site: "https://www.mookul.dev",
-    adapter: cloudflare(),
     integrations: [robotsTxt(), sitemap()],
     markdown: {
         remarkPlugins: [remarkAlert],
@@ -29,4 +26,34 @@ export default defineConfig({
     vite: {
         plugins: [tailwindcss()],
     },
+    fonts: [
+        {
+            provider: fontProviders.local(),
+            name: "LexendDeca",
+            cssVariable: "--font-lexend-deca",
+            options: {
+                variants: [
+                    {
+                        src: ["./src/assets/fonts/LexendDeca.woff2"],
+                        weight: "100 900",
+                        style: "normal",
+                    },
+                ],
+            },
+        },
+        {
+            provider: fontProviders.local(),
+            name: "CommitMono",
+            cssVariable: "--font-commit-mono",
+            options: {
+                variants: [
+                    {
+                        src: ["./src/assets/fonts/CommitMono.woff2"],
+                        weight: "100 900",
+                        style: "normal",
+                    },
+                ],
+            },
+        },
+    ],
 });
