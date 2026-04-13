@@ -43,12 +43,12 @@ export default defineConfig({
         },
         {
             provider: fontProviders.local(),
-            name: "CommitMono",
-            cssVariable: "--font-commit-mono",
+            name: "CascadiaCode",
+            cssVariable: "--font-cascadia-code",
             options: {
                 variants: [
                     {
-                        src: ["./src/assets/fonts/CommitMono.woff2"],
+                        src: ["./src/assets/fonts/CascadiaCode.woff2"],
                         weight: "100 900",
                         style: "normal",
                     },

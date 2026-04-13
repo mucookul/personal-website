@@ -12,7 +12,7 @@
 
 @theme inline {
     --font-sans: var(--font-lexend-deca);
-    --font-mono: var(--font-commit-mono);
+    --font-mono: var(--font-cascadia-code);
 }
 
 @media (prefers-reduced-motion: no-preference) {
