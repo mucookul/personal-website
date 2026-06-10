@@ -1,4 +1,5 @@
-// Copyright (C) 2026 mucookul
+// SPDX-FileCopyrightText: 2026 mucookul <mucookul@gmail.com>
+//
 // SPDX-License-Identifier: AGPL-3.0-only
 
 import { defineConfig, fontProviders } from "astro/config";
@@ -31,32 +32,14 @@ export default defineConfig({
     },
     fonts: [
         {
-            provider: fontProviders.local(),
-            name: "LexendDeca",
+            provider: fontProviders.fontsource(),
+            name: "Lexend Deca",
             cssVariable: "--font-lexend-deca",
-            options: {
-                variants: [
-                    {
-                        src: ["./src/assets/fonts/LexendDeca.woff2"],
-                        weight: "100 900",
-                        style: "normal",
-                    },
-                ],
-            },
         },
         {
-            provider: fontProviders.local(),
-            name: "CascadiaCode",
+            provider: fontProviders.fontsource(),
+            name: "Cascadia Code",
             cssVariable: "--font-cascadia-code",
-            options: {
-                variants: [
-                    {
-                        src: ["./src/assets/fonts/CascadiaCode.woff2"],
-                        weight: "100 900",
-                        style: "normal",
-                    },
-                ],
-            },
         },
     ],
 });

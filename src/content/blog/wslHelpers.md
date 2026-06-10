@@ -1,4 +1,8 @@
 ---
+# SPDX-FileCopyrightText: 2026 mucookul <mucookul@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-only
+
 title: WSL Helpers
 description: Some simple helpers I made to bootstrap Alpine and Arch from scratch.
 date: 2026-02-19

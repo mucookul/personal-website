@@ -1,7 +1,8 @@
-/* Copyright (C) 2026 mucookul */
-/* SPDX-License-Identifier: AGPL-3.0-only */
+// SPDX-FileCopyrightText: 2026 mucookul <mucookul@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-only
 
-document.querySelectorAll(".copy-btn").forEach((button) => {
+document.querySelectorAll("[data-copy-button]").forEach((button) => {
     button.addEventListener("click", () => {
         const wrapper = button.parentElement;
         if (!wrapper) return;
