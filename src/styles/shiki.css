@@ -4,6 +4,8 @@
  * SPDX-License-Identifier: AGPL-3.0-only
  */
 
+/* eslint-disable css/no-important, css/no-invalid-properties -- Shiki defines these variables for us and its dark mode requires !important */
+
 :root.dark pre.astro-code,
 :root.dark pre.astro-code span {
     color: var(--shiki-dark) !important;

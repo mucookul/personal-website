@@ -41,6 +41,7 @@ const years = Object.entries(postsByYear).sort(
             years.map(([year, posts]) => (
                 <section>
                     <h2 class="mt-0 mb-2">{year}</h2>
+                    {/* eslint-disable-next-line better-tailwindcss/no-unknown-classes -- not-prose exists and is used to disable tailwindcss typography */}
                     <ul class="not-prose grid gap-4">
                         {posts.map((post) => (
                             <li>
@@ -58,6 +59,7 @@ const years = Object.entries(postsByYear).sort(
                                             <p class="text-red-500 transition-all duration-500 dark:text-red-400">
                                                 {post.data.title}
                                             </p>
+                                            {/* eslint-disable-next-line better-tailwindcss/no-unknown-classes -- transition-colors doesn't work for me, despite transition-color not existing */}
                                             <span class="transition-color block h-px -translate-y-1.5 bg-red-500 opacity-0 duration-100 group-hover:opacity-100 dark:bg-red-400" />
                                         </div>
                                     </span>

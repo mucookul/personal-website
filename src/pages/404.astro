@@ -7,14 +7,12 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 ---
 
 <BaseLayout frontmatter={{ title: "404" }}>
-    <div class="not-prose absolute inset-0 -z-10 grid place-items-center">
-        <div class="grid gap-4">
-            <p>oops! looks like you got lost :(</p>
-            <a
-                href="/"
-                class="w-57 rounded-lg bg-red-300 px-3 py-1.5 text-black no-underline dark:bg-red-500 dark:text-white">
-                return home
-            </a>
-        </div>
+    <div class="grid size-fit place-self-center">
+        <p>oops! looks like you got lost :(</p>
+        <a
+            href="/"
+            class="w-full rounded-lg bg-red-300 px-3 py-1.5 text-black no-underline dark:bg-red-500 dark:text-white">
+            return home
+        </a>
     </div>
 </BaseLayout>

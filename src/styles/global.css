@@ -5,11 +5,12 @@
  */
 
 @import "tailwindcss";
-@plugin "@tailwindcss/typography";
 
 @import "./alerts.css";
 @import "./copyButtons.css";
 @import "./shiki.css";
+
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:where(.dark, .dark *));
 

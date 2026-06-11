@@ -28,8 +28,8 @@ const { Content } = await render(post);
 <BaseLayout frontmatter={post.data}>
     <div class="text-neutral-500 dark:text-neutral-400">
         <h1 class="mb-0">{post.data.title}</h1>
-        <p class="mt-[0.625em] mb-[0.625em]">{post.data.description}</p>
-        <p class="mt-[0.625em] mb-[0.625em]">
+        <p class="my-[0.625em]">{post.data.description}</p>
+        <p class="my-[0.625em]">
             {
                 post.data.date
                     .toLocaleDateString("en-US", {

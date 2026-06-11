@@ -4,6 +4,8 @@
  * SPDX-License-Identifier: AGPL-3.0-only
  */
 
+/* eslint-disable css/no-invalid-properties -- remark-github-blockquote-alert defines the missing variables for us */
+
 :root {
     --color-accent-fg: #0969da;
     --color-accent-emphasis: #0969da;

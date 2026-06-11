@@ -4,6 +4,8 @@
  * SPDX-License-Identifier: AGPL-3.0-only
  */
 
+/* eslint-disable css/no-invalid-properties -- ESlint's simply hallucinating, we know those variables are defined */
+
 :root {
     --copy-btn-color: var(--color-white);
     --copy-btn-color-hover: var(--color-zinc-100);
