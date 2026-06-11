@@ -33,13 +33,13 @@ export default defineConfig({
     fonts: [
         {
             provider: fontProviders.fontsource(),
-            name: "Lexend Deca",
-            cssVariable: "--font-lexend-deca",
+            name: "Lexend",
+            cssVariable: "--astro-sans",
         },
         {
             provider: fontProviders.fontsource(),
             name: "Cascadia Code",
-            cssVariable: "--font-cascadia-code",
+            cssVariable: "--astro-mono",
         },
     ],
 });

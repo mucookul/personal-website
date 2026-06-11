@@ -15,8 +15,8 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
-    --font-sans: var(--font-lexend-deca);
-    --font-mono: var(--font-cascadia-code);
+    --font-sans: var(--astro-sans);
+    --font-mono: var(--astro-mono);
 }
 
 html {
