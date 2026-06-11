@@ -33,7 +33,7 @@ export default defineConfig({
     fonts: [
         {
             provider: fontProviders.fontsource(),
-            name: "Lexend",
+            name: "Lexend Deca",
             cssVariable: "--astro-sans",
         },
         {
