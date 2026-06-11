@@ -2,19 +2,21 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-only
 
-document.querySelectorAll("[data-copy-button]").forEach((button) => {
-    button.addEventListener("click", () => {
-        const wrapper = button.parentElement;
-        if (!wrapper) return;
+export default function addListeners() {
+    document.querySelectorAll("[data-copy-button]").forEach((button) => {
+        button.addEventListener("click", () => {
+            const wrapper = button.parentElement;
+            if (!wrapper) return;
 
-        const code = wrapper.querySelector("pre code");
-        if (!code?.textContent) return;
+            const code = wrapper.querySelector("pre code");
+            if (!code?.textContent) return;
 
-        void navigator.clipboard.writeText(code.textContent);
-        button.textContent = "Copied!";
+            void navigator.clipboard.writeText(code.textContent);
+            button.textContent = "Copied!";
 
-        setTimeout(() => {
-            button.textContent = "Copy";
-        }, 2000);
+            setTimeout(() => {
+                button.textContent = "Copy";
+            }, 2000);
+        });
     });
-});
+}

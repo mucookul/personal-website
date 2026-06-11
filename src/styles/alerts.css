@@ -36,25 +36,25 @@
     border-left: 0.25em solid var(--alert-border);
     padding: 0 1em;
     margin-bottom: 1.25em;
+}
 
-    & > p {
-        margin-top: 0.625em;
-        margin-bottom: 0.625em;
-    }
+.markdown-alert > p {
+    margin-top: 0.625em;
+    margin-bottom: 0.625em;
+}
 
-    & > .markdown-alert-title {
-        align-items: center;
-        display: flex;
-        font-size: 14px;
-        font-weight: 500;
-        margin-bottom: 0.625em;
-        color: var(--alert-title-color);
-        gap: 8px;
-    }
+.markdown-alert > .markdown-alert-title {
+    align-items: center;
+    display: flex;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 0.625em;
+    color: var(--alert-title-color);
+    gap: 8px;
+}
 
-    & > .markdown-alert-title svg.octicon {
-        fill: currentColor;
-    }
+.markdown-alert > .markdown-alert-title svg.octicon {
+    fill: currentColor;
 }
 
 .markdown-alert-note {

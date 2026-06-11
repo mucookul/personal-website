@@ -46,5 +46,6 @@ const { Content } = await render(post);
 </BaseLayout>
 
 <script>
-    import "@/scripts/copy-button.ts";
+    import addListeners from "@/scripts/copy-button";
+    document.addEventListener("astro:page-load", addListeners);
 </script>

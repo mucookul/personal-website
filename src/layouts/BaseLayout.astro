@@ -5,6 +5,8 @@
 
 import { Font } from "astro:assets";
 
+import { ClientRouter } from "astro:transitions";
+
 import Footer from "@/components/Footer.astro";
 import Nav from "@/components/Nav.astro";
 
@@ -32,6 +34,7 @@ const { frontmatter } = Astro.props;
         <title>{frontmatter.title} | mucookul</title>
         <Font cssVariable="--font-lexend-deca" preload />
         <Font cssVariable="--font-cascadia-code" preload />
+        <ClientRouter />
     </head>
     <body
         class="grid h-screen grid-rows-[auto_1fr_auto] place-self-center dark:bg-black dark:text-white">
@@ -65,7 +68,13 @@ const { frontmatter } = Astro.props;
     }
 </style>
 
-<script is:inline>
+<script>
+    function theme() {
+        if (localStorage.getItem("dark") == "true") {
+            document.documentElement.classList.add("dark");
+        }
+    }
+
     if (localStorage.getItem("dark") == null) {
         localStorage.setItem(
             "dark",
@@ -75,7 +84,6 @@ const { frontmatter } = Astro.props;
         );
     }
 
-    if (localStorage.getItem("dark") == "true") {
-        document.documentElement.classList.add("dark");
-    }
+    theme();
+    document.addEventListener("astro:after-swap", theme);
 </script>

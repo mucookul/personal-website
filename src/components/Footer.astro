@@ -43,8 +43,10 @@ import Moon from "@lucide/astro/icons/moon";
 </footer>
 
 <script>
-    document.getElementById("themeSwitcher")!.onclick = () => {
-        const inside = document.documentElement.classList.toggle("dark");
-        localStorage.setItem("dark", inside.toString());
-    };
+    document.addEventListener("astro:page-load", () => {
+        document.getElementById("themeSwitcher")!.onclick = () => {
+            const inside = document.documentElement.classList.toggle("dark");
+            localStorage.setItem("dark", inside.toString());
+        };
+    });
 </script>

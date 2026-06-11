@@ -30,12 +30,9 @@ export default defineConfig([
             tolerant: true,
         },
         extends: ["css/recommended"],
-        rules: {
-            "css/use-baseline": "off", // I can't be bothered man
-        },
     },
     {
-        files: ["**/*.{ts,tsx,cts,mts}"],
+        files: ["**/*.ts"],
         languageOptions: {
             parserOptions: {
                 projectService: true,
@@ -45,7 +42,8 @@ export default defineConfig([
             eslint.configs.recommended,
             tseslint.configs.strictTypeChecked,
             tseslint.configs.stylisticTypeChecked,
-            eslintPluginBetterTailwindcss.configs.recommended,
+            eslintPluginBetterTailwindcss.configs.stylistic,
+            eslintPluginBetterTailwindcss.configs.correctness,
         ],
     },
     {
@@ -59,12 +57,13 @@ export default defineConfig([
             eslint.configs.recommended,
             tseslint.configs.strictTypeChecked,
             tseslint.configs.stylisticTypeChecked,
-            ...eslintPluginAstro.configs.recommended,
-            eslintPluginBetterTailwindcss.configs.recommended,
+            eslintPluginAstro.configs.recommended,
+            eslintPluginBetterTailwindcss.configs.stylistic,
+            eslintPluginBetterTailwindcss.configs.correctness,
         ],
     },
     {
-        files: ["**/*.{ts,tsx,cts,mts,astro}"],
+        files: ["**/*.{ts,astro}"],
         rules: {
             "better-tailwindcss/enforce-consistent-line-wrapping": "off",
             "better-tailwindcss/enforce-consistent-class-order": "off",

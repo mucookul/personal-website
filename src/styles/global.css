@@ -19,17 +19,13 @@
     --font-mono: var(--font-cascadia-code);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    @view-transition {
-        navigation: auto;
-    }
-
-    ::view-transition-old(root),
-    ::view-transition-new(root) {
-        animation-duration: 80ms;
-    }
+html {
+    overflow-y: scroll;
 }
 
-:root {
-    scrollbar-gutter: stable;
+@supports (scrollbar-gutter: stable) {
+    html {
+        overflow-y: auto;
+        scrollbar-gutter: stable;
+    }
 }

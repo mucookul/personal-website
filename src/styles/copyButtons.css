@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: AGPL-3.0-only
  */
 
-/* eslint-disable css/no-invalid-properties -- ESlint's simply hallucinating, we know those variables are defined */
+/* eslint-disable css/no-invalid-properties -- ESLint is unable to see Tailwind's color variables */
 
 :root {
     --copy-btn-color: var(--color-white);
@@ -18,26 +18,26 @@
 
 [data-pre-wrapper] {
     position: relative;
+}
 
-    & > pre.astro-code {
-        padding-right: 3.75rem;
-    }
+[data-pre-wrapper] > pre.astro-code {
+    padding-right: 3.75rem;
+}
 
-    & > button[data-copy-button] {
-        position: absolute;
-        top: 0.5rem;
-        right: 0.5rem;
-        padding: 0.25rem 0.5rem;
-        font-size: 0.75rem;
-        cursor: pointer;
-        border-radius: 0.25rem;
-        font-style: normal;
-        background-color: var(--copy-btn-color);
-        transition-property: background-color;
-        transition-duration: 50ms;
+[data-pre-wrapper] > button[data-copy-button] {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    font-style: normal;
+    background-color: var(--copy-btn-color);
+    transition-property: background-color;
+    transition-duration: 50ms;
+}
 
-        &:hover {
-            background-color: var(--copy-btn-color-hover);
-        }
-    }
+[data-pre-wrapper] > button[data-copy-button]:hover {
+    background-color: var(--copy-btn-color-hover);
 }
