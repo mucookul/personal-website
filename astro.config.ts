@@ -7,26 +7,24 @@ import tailwindcss from "@tailwindcss/vite";
 
 import robotsTxt from "astro-robots-txt";
 import sitemap from "astro-sitemap";
-
-import { unified } from "@astrojs/markdown-remark";
-import { remarkAlert } from "remark-github-blockquote-alert";
-import rehypeCopyButton from "./src/rehype/rehype-copy-button.ts";
+import astroExpressiveCode from "astro-expressive-code";
 
 export default defineConfig({
     site: "https://www.mookul.dev",
-    integrations: [robotsTxt(), sitemap()],
-    markdown: {
-        processor: unified({
-            remarkPlugins: [remarkAlert],
-            rehypePlugins: [rehypeCopyButton],
-        }),
-        shikiConfig: {
-            themes: {
-                light: "ayu-light",
-                dark: "ayu-dark",
+    integrations: [
+        robotsTxt(),
+        sitemap(),
+        astroExpressiveCode({
+            themes: ["github-light-default", "github-dark-default"],
+            useDarkModeMediaQuery: false,
+            themeCssSelector: (theme) =>
+                theme.type === "dark" ? ".dark" : false,
+            styleOverrides: {
+                uiFontFamily: "var(--font-sans)",
+                codeFontFamily: "var(--font-mono)",
             },
-        },
-    },
+        }),
+    ],
     vite: {
         plugins: [tailwindcss()],
     },
