@@ -5,7 +5,7 @@
 
 import { Font } from "astro:assets";
 
-import { ClientRouter } from "astro:transitions";
+import { ClientRouter, fade } from "astro:transitions";
 
 import Footer from "@/components/Footer.astro";
 import Nav from "@/components/Nav.astro";
@@ -22,7 +22,7 @@ interface Props {
 const { frontmatter } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="en" transition:animate={fade({ duration: "0.08s" })}>
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
@@ -69,19 +69,19 @@ const { frontmatter } = Astro.props;
 </style>
 
 <script>
+    if (localStorage.getItem("dark") == null) {
+        localStorage.setItem(
+            "dark",
+            window
+                .matchMedia("(prefers-color-scheme: dark)")
+                .matches.toString(),
+        );
+    }
+
     function theme() {
         if (localStorage.getItem("dark") == "true") {
             document.documentElement.classList.add("dark");
         }
-    }
-
-    if (localStorage.getItem("dark") == null) {
-        localStorage.setItem(
-            "dark",
-            window.matchMedia("(prefers-color-scheme: dark)").matches
-                ? "true"
-                : "false",
-        );
     }
 
     theme();
