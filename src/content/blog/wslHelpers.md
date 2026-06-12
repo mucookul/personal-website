@@ -12,7 +12,7 @@ I always find myself with super messy WSL installs, so here's my scripts I use t
 
 <br />
 
-```batch frame="code" title="createAlpine.bat"
+```batch title="createAlpine.bat"
 @echo off
 wsl --unregister alpine
 
@@ -31,7 +31,7 @@ wsl --terminate alpine
 
 <br />
 
-```batch frame="code" title="createArch.bat"
+```batch title="createArch.bat"
 @echo off
 wsl --unregister arch
 
